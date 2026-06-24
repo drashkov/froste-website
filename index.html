@@ -14,16 +14,11 @@
   <!-- Fixed Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html">
+      <a href="index.html" class="header-brand">
         <img src="images/logo.png" alt="Sasquatch Robotics" class="header-logo">
+        <span class="brand-text">Sasquatch Robotics</span>
       </a>
       <nav class="header-nav">
-        <div class="nav-links">
-          <a href="#problem">The Problem</a>
-          <a href="#solution">The Solution</a>
-          <a href="#workflow">Workflow</a>
-          <a href="#safety">Safety</a>
-        </div>
         <a href="mailto:sales@sasquatchrobotics.com" class="header-cta">Reserve Yours</a>
       </nav>
     </div>
@@ -40,7 +35,10 @@
       <div class="hero-body">
         <div class="hero-visual">
           <div class="image-wrapper">
-            <img src="images/froste.png" alt="FrostE Robot" class="hero-image" />
+            <video class="hero-image" autoplay loop muted playsinline poster="images/froste.png">
+              <source src="images/froste.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
             <div class="brutal-decoration shape-1"></div>
             <div class="brutal-decoration shape-2"></div>
           </div>
@@ -81,8 +79,8 @@
             time clearing and salting steps, narrow walkways, complex courtyards and townhouse paths. This is the
             slowest part of route completion and represents the highest risk zone for slip-and-fall claims.</p>
           <p>
-            What if you could automate the detail work and make the whole site as quick and easy as an empty parking
-            lot?
+            What if you could automatically complete and meticulously document all the detail work, making the whole
+            site as quick and easy as an empty parking lot?
           </p>
         </div>
       </div>
@@ -90,38 +88,46 @@
 
     <!-- Section 3: The Solution -->
     <section id="solution" class="container section-standard">
-      <h2>Your new on-site detail specialist.</h2>
-      <p>FrostE is a supplementary commercial machine. It lives permanently on-site in a 120V charging station,
-        deploying continuously to manage accumulation on intricate walkways so your crews don't have to.</p>
+      <h2>FrostE is the on-site detail specialist.</h2>
+      <p>FrostE is a supplementary commercial machine that lives permanently on-site in a 120V charging station. It
+        deploys continuously to manage snow and ice accumulation on intricate walkways, helping your crews complete
+        their visits faster and providing detailed documentation to limit your liability and lower your insurance
+        premiums.</p>
+
+      <div class="diagram-wrapper">
+        <img src="images/diagram.png" alt="FrostE Robot Diagram" class="solution-diagram" />
+      </div>
 
       <div class="features-grid">
         <article class="brutal-card">
           <div class="feature-icon">🚜</div>
           <h3>Built for Tight Spaces</h3>
-          <p>A compact, tracked electric chassis designed specifically to maneuver where heavy equipment cannot operate.
+          <p>A compact, tracked electric chassis designed specifically to maneuver where heavy equipment cannot operate,
+            including the ability to clean steps.
           </p>
         </article>
 
         <article class="brutal-card" style="background-color: var(--secondary-color);">
           <div class="feature-icon">⚡</div>
           <h3>High-Volume Throughput</h3>
-          <p>Powered by a 24V 200Ah battery (a 4.8kWh pack), providing the heavy-duty torque necessary to clear up to
-            10,000 sq ft of 5cm accumulation per cycle.</p>
+          <p>With 1hr of charging and 1.5 hrs of runtime, it provides the heavy-duty torque necessary to clear up to
+            10,000 sq ft of 5cm accumulation per cycle, handling the heavest of snowfalls.</p>
         </article>
 
         <article class="brutal-card" style="background-color: var(--button-color-alt);">
           <div class="feature-icon">💧</div>
           <h3>Strategic Brine Application</h3>
-          <p>Sprays liquid brine to prevent initial bonding. The tank is easily refilled by your crew during their
+          <p>Ability to detect ice using LIDAR and spray liquid brine to prevent initial bonding. The tank is easily
+            refilled by your crew during their
             standard final sign-off visit.</p>
         </article>
 
         <article class="brutal-card" style="background-color: var(--primary-color);">
           <div class="feature-icon">🛡️</div>
           <h3>Immutable Duty of Care</h3>
-          <p>Generates a cryptographic, time-stamped visual log of its continuous clearing efforts. This provides
-            indisputable evidence that you maintained an active duty of care throughout the storm, fortifying your
-            defense against negligence claims.</p>
+          <p>Generates detailed, time-stamped visual log of its continuous clearing efforts. This provides
+            indisputable evidence that you maintained an active duty of care throughout, fortifying your
+            defense against negligence claims and helping lower your insurance premiums.</p>
         </article>
       </div>
     </section>

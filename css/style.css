@@ -114,6 +114,21 @@ p {
   width: 100%;
 }
 
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.brand-text {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+}
+
 .header-logo {
   height: 40px;
   object-fit: contain;
@@ -122,43 +137,25 @@ p {
 
 .header-nav {
   display: flex;
-  gap: 1.5rem;
   align-items: center;
-}
-
-.header-nav a {
-  font-weight: 800;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  border-bottom: 3px solid transparent;
-  padding-bottom: 2px;
-  transition: border-bottom-color 0.2s ease;
-}
-
-@media (max-width: 768px) {
-  .header-nav .nav-links {
-    display: none;
-    /* Hide standard links on mobile */
-  }
-}
-
-.header-nav a:hover {
-  border-bottom-color: var(--border-color);
 }
 
 .header-cta {
   background-color: var(--button-color-alt);
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   border: 3px solid var(--border-color);
   border-radius: 8px;
   box-shadow: 3px 3px 0px 0px var(--border-color);
   transition: transform 0.1s;
+  white-space: nowrap;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1rem;
 }
 
 .header-cta:hover {
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 0px 0px var(--border-color);
-  border-bottom-color: var(--border-color) !important;
 }
 
 /* Component: Brutal Buttons */
@@ -243,7 +240,7 @@ p {
 .hero-headline {
   font-size: clamp(2.5rem, 5.5vw, 4.5rem);
   text-transform: uppercase;
-  margin: 0.5rem;
+  margin: 1rem;
   width: 100%;
   text-align: center;
 }
@@ -354,12 +351,13 @@ p {
   position: relative;
   width: 100%;
   max-width: 680px;
+  aspect-ratio: 16 / 9;
 }
 
 .hero-image {
+  display: block;
   width: 100%;
-  height: auto;
-  max-height: 400px;
+  height: 100%;
   border: var(--brutal-border);
   border-radius: var(--brutal-radius);
   box-shadow: var(--brutal-shadow);
@@ -391,9 +389,26 @@ p {
   width: 120px;
   height: 120px;
   bottom: -40px;
-  left: -35px;
+  left: -30px;
   transform: rotate(20deg);
   box-shadow: 4px 4px 0px 0px var(--border-color);
+}
+
+.diagram-wrapper {
+  margin: 3.5rem auto;
+  text-align: center;
+  max-width: 960px;
+  width: 100%;
+}
+
+.solution-diagram {
+  width: 100%;
+  height: auto;
+  border: var(--brutal-border);
+  border-radius: var(--brutal-radius);
+  box-shadow: var(--brutal-shadow);
+  background: white;
+  display: block;
 }
 
 /* Component: Features Grid */
