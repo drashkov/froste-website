@@ -325,6 +325,10 @@ p {
   background-color: var(--business-color);
 }
 
+.pain-point-item:nth-child(4) .pain-point-icon {
+  background-color: var(--button-color-alt);
+}
+
 .pain-point-title {
   font-size: 1.25rem;
   font-weight: 800;
@@ -508,4 +512,37 @@ p {
   font-weight: 800;
   margin-top: 4rem;
   background-color: #fff;
+}
+
+/* Static Brutal Card (no hover effect) */
+.brutal-card-static:hover {
+  transform: none;
+  box-shadow: var(--brutal-shadow);
+}
+
+/* Styled List Items */
+.safety-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.safety-list li {
+  position: relative;
+  padding-left: 1.75rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.safety-list li::before {
+  content: "■";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  font-size: 0.9rem;
+  color: var(--border-color);
 }
