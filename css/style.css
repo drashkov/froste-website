@@ -21,9 +21,13 @@
 
   /* Brutalist utilities */
   --brutal-border: 4px solid var(--border-color);
-  --brutal-shadow: 8px 8px 0px 0px var(--border-color);
+  --brutal-border-thin: 2px solid var(--border-color);
+  --brutal-shadow-sm: 3px 3px 0px 0px var(--border-color);
+  --brutal-shadow: 5px 5px 0px 0px var(--border-color);
+  --brutal-shadow-lg: 8px 8px 0px 0px var(--border-color);
   --brutal-radius: 16px;
-  /* Softness */
+  --brutal-radius-sm: 8px;
+  --brutal-transition: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *,
@@ -59,14 +63,13 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
 }
 
 h1 {
   font-size: clamp(3rem, 6vw, 5rem);
-  text-transform: uppercase;
   margin-bottom: 1.5rem;
 }
 
@@ -82,8 +85,10 @@ h3 {
 
 p {
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 400;
+  line-height: 1.65;
   margin-bottom: 1.5rem;
+  color: #1e293b;
 }
 
 /* Base Container */
@@ -168,8 +173,8 @@ p {
   padding: 0.75rem 1.5rem;
   border: 3px solid var(--border-color);
   border-radius: 8px;
-  box-shadow: 3px 3px 0px 0px var(--border-color);
-  transition: transform 0.1s;
+  box-shadow: var(--brutal-shadow-sm);
+  transition: all var(--brutal-transition);
   white-space: nowrap;
   font-weight: 800;
   text-transform: uppercase;
@@ -177,8 +182,13 @@ p {
 }
 
 .header-cta:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0px 0px var(--border-color);
+  transform: none;
+  filter: brightness(0.95);
+}
+
+.header-cta:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0px 0px 0px 0px var(--border-color);
 }
 
 /* Component: Brutal Buttons */
@@ -188,12 +198,12 @@ p {
   color: var(--text-color);
   border: var(--brutal-border);
   border-radius: 12px;
-  padding: 1.2rem 2rem;
+  padding: 0.8rem 1.8rem;
   font-size: 1.2rem;
   font-weight: 900;
   cursor: pointer;
-  box-shadow: 6px 6px 0px 0px var(--border-color);
-  transition: all 0.15s ease;
+  box-shadow: var(--brutal-shadow-sm);
+  transition: all var(--brutal-transition);
   text-align: center;
   text-transform: uppercase;
 }
@@ -207,12 +217,12 @@ p {
 }
 
 .brutal-button:hover {
-  transform: translate(3px, 3px);
-  box-shadow: 3px 3px 0px 0px var(--border-color);
+  transform: none;
+  filter: brightness(0.95);
 }
 
 .brutal-button:active {
-  transform: translate(6px, 6px);
+  transform: translate(3px, 3px);
   box-shadow: 0px 0px 0px 0px var(--border-color);
 }
 
@@ -228,8 +238,8 @@ p {
 }
 
 .brutal-card:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 12px 12px 0px 0px var(--border-color);
+  transform: translate(-3px, -3px);
+  box-shadow: var(--brutal-shadow-lg);
 }
 
 /* Layout: Section Padding */
@@ -265,20 +275,19 @@ p {
 
 .hero-headline {
   font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-  text-transform: uppercase;
-  margin: 1rem;
+  margin: 1rem auto;
   width: 100%;
   text-align: center;
 }
 
 .hero-subheadline {
   font-size: clamp(1.1rem, 2vw, 1.35rem);
-  font-weight: 500;
+  font-weight: 400;
   max-width: 850px;
   margin: 0 auto 2rem auto;
   text-align: center;
-  line-height: 1.5;
-  color: #333;
+  line-height: 1.65;
+  color: #1e293b;
 }
 
 .hero-body {
@@ -358,7 +367,6 @@ p {
 .pain-point-title {
   font-size: 1.25rem;
   font-weight: 800;
-  text-transform: uppercase;
   letter-spacing: -0.01em;
 }
 
@@ -411,7 +419,7 @@ p {
   border-radius: 50%;
   top: -35px;
   right: -35px;
-  box-shadow: 4px 4px 0px 0px var(--border-color);
+  box-shadow: var(--brutal-shadow-sm);
 }
 
 .shape-2 {
@@ -421,7 +429,7 @@ p {
   bottom: -40px;
   left: -30px;
   transform: rotate(20deg);
-  box-shadow: 4px 4px 0px 0px var(--border-color);
+  box-shadow: var(--brutal-shadow-sm);
 }
 
 .diagram-wrapper {
@@ -523,10 +531,10 @@ p {
   border: var(--brutal-border);
   padding: 1rem 2rem;
   font-size: 2.5rem;
-  font-weight: 900;
+  font-weight: 800;
   border-radius: 8px;
   transform: rotate(-2deg);
-  box-shadow: 4px 4px 0px 0px var(--border-color);
+  box-shadow: var(--brutal-shadow-sm);
   margin-bottom: 2rem;
 }
 
