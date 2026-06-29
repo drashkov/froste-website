@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Soft Neo Brutalism - Design System Showcase</title>
-  <meta name="description" content="A complete Neo-Brutalist Design System inspired by the Frost-E Robotics styling. Features blogs, dashboards, SaaS apps, and a full playground.">
+  <meta name="description"
+    content="A complete Neo-Brutalist Design System inspired by the Frost-E Robotics styling. Features blogs, dashboards, SaaS apps, and a full playground.">
   <link rel="stylesheet" href="css/design-system.css">
   <style>
     /* Inline styles specifically for the showcase page wrapper and dashboard demo */
@@ -15,12 +17,12 @@
       text-align: center;
       position: relative;
     }
-    
+
     .showcase-header h1 {
       margin-bottom: 0.5rem;
       font-size: clamp(2.5rem, 6vw, 4.5rem);
     }
-    
+
     .showcase-header p {
       max-width: 700px;
       margin: 0 auto;
@@ -93,6 +95,7 @@
       gap: 1.5rem;
       margin-top: 1.5rem;
     }
+
     @media (min-width: 768px) {
       .kanban-board {
         grid-template-columns: repeat(3, 1fr);
@@ -145,6 +148,7 @@
       padding-bottom: 3rem;
       border-bottom: var(--brutal-border-thin);
     }
+
     .doc-section:last-child {
       border-bottom: none;
     }
@@ -160,16 +164,18 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Top Global Navbar -->
   <header class="brutal-navbar">
     <div class="container flex-row justify-between">
       <a href="#" class="navbar-brand">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(2px 2px 0px var(--border-color));">
-          <rect x="2" y="2" width="28" height="28" rx="6" fill="#fde047" stroke="#0d0d0d" stroke-width="3"/>
-          <path d="M8 8H24V24H8V8Z" fill="#a7f3d0" stroke="#0d0d0d" stroke-width="3"/>
-          <path d="M12 12H20V20H12V12Z" fill="#fca5a5" stroke="#0d0d0d" stroke-width="3"/>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+          style="filter: drop-shadow(2px 2px 0px var(--border-color));">
+          <rect x="2" y="2" width="28" height="28" rx="6" fill="#fde047" stroke="#0d0d0d" stroke-width="3" />
+          <path d="M8 8H24V24H8V8Z" fill="#a7f3d0" stroke="#0d0d0d" stroke-width="3" />
+          <path d="M12 12H20V20H12V12Z" fill="#fca5a5" stroke="#0d0d0d" stroke-width="3" />
         </svg>
         <span>Soft Neo Brutalism</span>
       </a>
@@ -189,7 +195,8 @@
   <section class="showcase-header">
     <div class="container">
       <h1>Soft Neo Brutalism</h1>
-      <p>A high-contrast, premium, responsive layout framework built with bold outlines, vibrant pastels, offset shadows, and modern typography.</p>
+      <p>A high-contrast, premium, responsive layout framework built with bold outlines, vibrant pastels, offset
+        shadows, and modern typography.</p>
     </div>
   </section>
 
@@ -209,7 +216,7 @@
          VIEW 1: PLAYGROUND SECTION
          ========================================== -->
     <section id="playground" class="showcase-section active">
-      
+
       <!-- Typography Section -->
       <div class="doc-section">
         <h2 class="doc-section-title">01. Typography</h2>
@@ -218,16 +225,20 @@
           <h2>H2 Title — Section Sub-heading</h2>
           <h3>H3 Title — Column and Card Title</h3>
           <h4>H4 Title — Small Component Label</h4>
-          
+
           <brutal-divider-thick class="brutal-divider"></brutal-divider-thick>
 
-          <p class="lead">Lead paragraph: This is a bold lead description. It highlights primary statements using heavier font weights and slightly larger formatting.</p>
-          <p>Body paragraph: Antigravity is a powerful agentic AI coding assistant designed by Google DeepMind. Standard text looks highly readable with a 1.6 line height and is set in <code>Inter</code>, a clean, modern sans-serif font family. It is optimized for both readability and strict style compliance.</p>
-          
+          <p class="lead">Lead paragraph: This is a bold lead description. It highlights primary statements using
+            heavier font weights and slightly larger formatting.</p>
+          <p>Body paragraph: Antigravity is a powerful agentic AI coding assistant designed by Google DeepMind. Standard
+            text looks highly readable with a 1.6 line height and is set in <code>Inter</code>, a clean, modern
+            sans-serif font family. It is optimized for both readability and strict style compliance.</p>
+
           <blockquote>
-            "Neo-Brutality rejects the sterile gradient and soft-shadow aesthetics of the Web 2.0 era, returning to high contrast borders, flat colors, and absolute structured grid layouts."
+            "Neo-Brutality rejects the sterile gradient and soft-shadow aesthetics of the Web 2.0 era, returning to high
+            contrast borders, flat colors, and absolute structured grid layouts."
           </blockquote>
-          
+
           <p class="small-text">Small text: Designed for metadata, timestamps, and secondary captions.</p>
         </div>
       </div>
@@ -247,18 +258,27 @@
               <button class="brutal-btn btn-white">White Button</button>
               <button class="brutal-btn" disabled>Disabled State</button>
             </div>
-            
+
             <h4 class="mt-4 mb-2">Sizing & Icon Variants</h4>
             <div class="flex-row flex-wrap align-start">
               <button class="brutal-btn brutal-btn-lg btn-yellow">Large Button ⚡</button>
               <button class="brutal-btn btn-primary">Standard Button 🚜</button>
               <button class="brutal-btn brutal-btn-sm btn-secondary">Small Button</button>
-              
+
               <button class="brutal-btn btn-icon btn-coral" aria-label="Settings">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
               </button>
               <button class="brutal-btn btn-icon btn-primary" aria-label="Search">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.3-4.3" />
+                </svg>
               </button>
             </div>
           </div>
@@ -275,7 +295,7 @@
               <label class="form-label" for="ex-text">Text Input</label>
               <input type="text" id="ex-text" class="form-control" placeholder="Enter robot serial name...">
             </div>
-            
+
             <div class="form-group">
               <label class="form-label" for="ex-select">Select Walkway Type</label>
               <select id="ex-select" class="form-control">
@@ -354,7 +374,8 @@
             <div class="card-header">
               <h4>System Unit E-01</h4>
             </div>
-            <p>A compact, tracked electric chassis designed specifically to maneuver where heavy equipment cannot operate.</p>
+            <p>A compact, tracked electric chassis designed specifically to maneuver where heavy equipment cannot
+              operate.</p>
             <div class="card-footer">
               <span class="small-text">Updated 2m ago</span>
               <button class="brutal-btn brutal-btn-sm btn-primary">Details</button>
@@ -367,7 +388,8 @@
               <h4>Battery Depleted</h4>
               <span class="brutal-badge badge-error shadow-sm">Warning</span>
             </div>
-            <p>Frost-E unit 04 has hit 12% battery remaining. Returning to residential 120V docking station immediately.</p>
+            <p>Frost-E unit 04 has hit 12% battery remaining. Returning to residential 120V docking station immediately.
+            </p>
             <div class="card-footer">
               <span class="text-bold">Docking status: Pending</span>
             </div>
@@ -379,7 +401,8 @@
               <h4>Brine Spray Refill</h4>
               <span class="brutal-badge badge-success shadow-sm">Info</span>
             </div>
-            <p>LIDAR system detected thin ice layer forming on front steps. Applied 4.5L brine spray buffer successfully.</p>
+            <p>LIDAR system detected thin ice layer forming on front steps. Applied 4.5L brine spray buffer
+              successfully.</p>
             <div class="card-footer">
               <span class="small-text">Today at 13:04</span>
             </div>
@@ -415,7 +438,7 @@
                 <p>LiDAR signal blocked. Robot halted immediately. Emergency operator requested to review.</p>
               </div>
             </div>
-            
+
             <div class="brutal-card flex-col align-start">
               <h4>Interactive Tooltip Demos</h4>
               <p>Hover over the elements below to view their structural Neo-Brutalist metadata captions:</p>
@@ -567,36 +590,50 @@
           <span class="text-bold">Published: June 29, 2026</span>
           <span class="text-muted">• 5 min read</span>
         </div>
-        
+
         <h1 class="mb-4">How Autonomous Detail Work is Saving Snow Contractors Up to 40% on Route Times</h1>
-        
+
         <!-- Mock image layout with custom border style -->
         <div class="chart-placeholder mb-4" style="height: 380px; background-color: var(--primary-color);">
           <div class="flex-col text-center">
             <span style="font-size: 4rem;">🚜</span>
-            <span class="text-bold" style="font-size: 1.5rem; text-transform: uppercase;">Image Mockup: Frost-E Clears Townhouse Step Paths</span>
+            <span class="text-bold" style="font-size: 1.5rem; text-transform: uppercase;">Image Mockup: Frost-E Clears
+              Townhouse Step Paths</span>
           </div>
         </div>
 
         <div class="blog-post-content">
-          <p class="lead">Every winter, commercial snow removal fleets face the exact same bottleneck: detail work. While large 8-ton plow trucks clear parking lots in minutes, sidewalks, townhouse steps, and building entrances force shovelers to do manual, high-liability labor.</p>
-          
-          <p>This is where autonomous resident loaders are changing the math. By parking a dedicated detail robot on site inside a weatherproof charging dock, snow contractors are clearing walkways continuously before their main crew even arrives. The result is a dramatically reduced site visit time and a cleaner path for building occupants.</p>
-          
+          <p class="lead">Every winter, commercial snow removal fleets face the exact same bottleneck: detail work.
+            While large 8-ton plow trucks clear parking lots in minutes, sidewalks, townhouse steps, and building
+            entrances force shovelers to do manual, high-liability labor.</p>
+
+          <p>This is where autonomous resident loaders are changing the math. By parking a dedicated detail robot on
+            site inside a weatherproof charging dock, snow contractors are clearing walkways continuously before their
+            main crew even arrives. The result is a dramatically reduced site visit time and a cleaner path for building
+            occupants.</p>
+
           <blockquote>
-            "We used to send a truck with three shovelers for four hours to clear the courtyard. Now, we send one driver to clear the main lot. The paths are already cleared. We're in and out in 10 minutes."
+            "We used to send a truck with three shovelers for four hours to clear the courtyard. Now, we send one driver
+            to clear the main lot. The paths are already cleared. We're in and out in 10 minutes."
           </blockquote>
 
           <h3 class="mt-4 mb-2">Eliminating Call-Outs & Slip-and-Fall Claims</h3>
-          <p>Detail work isn't just slow—it is the primary driver of slip-and-fall litigation. Municipal by-laws require public walkways to be cleared within a few hours of snowfall, creating huge pressure on dispatch hubs. Resident robots monitor site conditions in real-time, clearing paths as snow falls rather than hours later.</p>
+          <p>Detail work isn't just slow—it is the primary driver of slip-and-fall litigation. Municipal by-laws require
+            public walkways to be cleared within a few hours of snowfall, creating huge pressure on dispatch hubs.
+            Resident robots monitor site conditions in real-time, clearing paths as snow falls rather than hours later.
+          </p>
 
           <ul class="safety-list mb-4">
-            <li><strong>Continuous Site Auditing:</strong> The built-in LiDAR maps generate timestamps and visual proof of clearing passes.</li>
-            <li><strong>Liquid Brine Advantage:</strong> Applying liquid salt preventatively prevents ice-bonding, making subsequent plow passes twice as fast.</li>
-            <li><strong>Reduced Payroll Pressure:</strong> Staffing shortages vanish when your truck crews no longer need custom shoveler details.</li>
+            <li><strong>Continuous Site Auditing:</strong> The built-in LiDAR maps generate timestamps and visual proof
+              of clearing passes.</li>
+            <li><strong>Liquid Brine Advantage:</strong> Applying liquid salt preventatively prevents ice-bonding,
+              making subsequent plow passes twice as fast.</li>
+            <li><strong>Reduced Payroll Pressure:</strong> Staffing shortages vanish when your truck crews no longer
+              need custom shoveler details.</li>
           </ul>
 
-          <p>By shifting to an asset-heavy, resident robot approach, site managers guarantee clear paths all day long while insurance agencies provide premium discounts due to immutable duty of care proof.</p>
+          <p>By shifting to an asset-heavy, resident robot approach, site managers guarantee clear paths all day long
+            while insurance agencies provide premium discounts due to immutable duty of care proof.</p>
         </div>
 
         <div class="blog-author-card">
@@ -604,7 +641,8 @@
           <div>
             <h4 class="m-0">Martin Albright</h4>
             <p class="small-text m-0">Head of Robotics R&D, Frost-E Solutions</p>
-            <p class="mt-2 m-0" style="font-size: 0.95rem;">Martin oversees autonomous chassis integration and ROS 2 localization mapping filters for cold-weather deployments.</p>
+            <p class="mt-2 m-0" style="font-size: 0.95rem;">Martin oversees autonomous chassis integration and ROS 2
+              localization mapping filters for cold-weather deployments.</p>
           </div>
         </div>
       </div>
@@ -615,7 +653,7 @@
          ========================================== -->
     <section id="dashboard" class="showcase-section">
       <div class="flex-col">
-        
+
         <!-- Dashboard Toolbar -->
         <div class="brutal-card p-3 flex-row justify-between flex-wrap">
           <div class="flex-row">
@@ -623,9 +661,11 @@
             <h3 class="m-0">Operations Control Board</h3>
           </div>
           <div class="flex-row flex-wrap">
-            <button class="brutal-btn brutal-btn-sm btn-primary" onclick="randomizeDashboardChart()">⚡ Refresh Data</button>
+            <button class="brutal-btn brutal-btn-sm btn-primary" onclick="randomizeDashboardChart()">⚡ Refresh
+              Data</button>
             <button class="brutal-btn brutal-btn-sm btn-yellow">Export CSV</button>
-            <select class="form-control" style="width: 180px; box-shadow: 2px 2px 0px var(--border-color); padding: 0.4rem 1rem;">
+            <select class="form-control"
+              style="width: 180px; box-shadow: 2px 2px 0px var(--border-color); padding: 0.4rem 1rem;">
               <option>All Plazas</option>
               <option>East Region</option>
               <option>West Region</option>
@@ -665,7 +705,7 @@
               <h4>Hourly Snow Accumulation vs Clearing Cycles</h4>
               <span class="brutal-badge badge-purple">Real-Time (cm)</span>
             </div>
-            
+
             <!-- Live mock bar chart -->
             <div class="chart-placeholder">
               <div class="chart-bar-container" id="dashboard-chart">
@@ -678,7 +718,7 @@
                 <div class="chart-bar" style="height: 70%;" title="8:00 PM"></div>
               </div>
             </div>
-            
+
             <div class="flex-row justify-between mt-3">
               <span class="small-text">Accumulation peaking at 18:00 (9.5 cm)</span>
               <span class="small-text">Auto-refresh: 30s</span>
@@ -765,7 +805,7 @@
          ========================================== -->
     <section id="app" class="showcase-section">
       <div class="brutal-card app-layout p-0">
-        
+
         <!-- Sidebar Navigation inside App container -->
         <aside class="app-sidebar">
           <div class="sidebar-menu">
@@ -780,7 +820,7 @@
               <span>👥</span> User Roles
             </a>
           </div>
-          
+
           <div class="brutal-card p-3 text-center card-yellow" style="box-shadow: 2px 2px 0px var(--border-color);">
             <h4 style="font-size: 0.9rem;">Fleet Active</h4>
             <p class="m-0 small-text">Version 4.2.1</p>
@@ -789,13 +829,13 @@
 
         <!-- Dynamic subcontents of app panel -->
         <div class="app-content">
-          
+
           <!-- Subtab 1: settings -->
           <div id="app-settings" class="app-subcontent active">
             <h3>Fleet Safety Configuration</h3>
             <p>Modify local emergency cutoff parameters and operational thresholds below.</p>
             <hr class="brutal-divider">
-            
+
             <div class="grid grid-2">
               <div class="form-group">
                 <label class="form-label">Active Proximity Exclusion Radius</label>
@@ -831,7 +871,8 @@
             <hr class="brutal-divider">
 
             <div class="flex-row">
-              <button class="brutal-btn btn-primary" onclick="alert('Settings saved successfully!')">Save Fleet Settings</button>
+              <button class="brutal-btn btn-primary" onclick="alert('Settings saved successfully!')">Save Fleet
+                Settings</button>
               <button class="brutal-btn btn-white">Reset Default</button>
             </div>
           </div>
@@ -854,12 +895,16 @@
                 </div>
                 <div class="kanban-tasks">
                   <div class="kanban-card">
-                    <span class="brutal-badge badge-yellow" style="font-size:0.65rem; padding: 0.1rem 0.4rem; box-shadow: 1px 1px var(--border-color);">Plaza A</span>
+                    <span class="brutal-badge badge-yellow"
+                      style="font-size:0.65rem; padding: 0.1rem 0.4rem; box-shadow: 1px 1px var(--border-color);">Plaza
+                      A</span>
                     <h5 class="mt-2">Clear Main Walkway</h5>
                     <p class="m-0 small-text mt-1">Pre-brine application required</p>
                   </div>
                   <div class="kanban-card">
-                    <span class="brutal-badge badge-purple" style="font-size:0.65rem; padding: 0.1rem 0.4rem; box-shadow: 1px 1px var(--border-color);">Plaza C</span>
+                    <span class="brutal-badge badge-purple"
+                      style="font-size:0.65rem; padding: 0.1rem 0.4rem; box-shadow: 1px 1px var(--border-color);">Plaza
+                      C</span>
                     <h5 class="mt-2">Calibrate LiDAR sensors</h5>
                     <p class="m-0 small-text mt-1">Unit reports slight offset</p>
                   </div>
@@ -873,7 +918,9 @@
                 </div>
                 <div class="kanban-tasks">
                   <div class="kanban-card" style="border-left: 6px solid var(--accent-color);">
-                    <span class="brutal-badge badge-primary" style="font-size:0.65rem; padding: 0.1rem 0.4rem; box-shadow: 1px 1px var(--border-color);">Court B</span>
+                    <span class="brutal-badge badge-primary"
+                      style="font-size:0.65rem; padding: 0.1rem 0.4rem; box-shadow: 1px 1px var(--border-color);">Court
+                      B</span>
                     <h5 class="mt-2">Step Clearing Pass</h5>
                     <p class="m-0 small-text mt-1">Robot #E-0129 actively clearing steps</p>
                   </div>
@@ -887,7 +934,9 @@
                 </div>
                 <div class="kanban-tasks">
                   <div class="kanban-card">
-                    <span class="brutal-badge badge-success" style="font-size:0.65rem; padding: 0.1rem 0.4rem; box-shadow: 1px 1px var(--border-color);">Station 1</span>
+                    <span class="brutal-badge badge-success"
+                      style="font-size:0.65rem; padding: 0.1rem 0.4rem; box-shadow: 1px 1px var(--border-color);">Station
+                      1</span>
                     <h5 class="mt-2">Charging Cycle</h5>
                     <p class="m-0 small-text mt-1">Beta charged to 100%</p>
                   </div>
@@ -901,9 +950,10 @@
             <h3>User Roles & Operators</h3>
             <p>Manage human supervisors authorized to take remote camera control of robots.</p>
             <hr class="brutal-divider">
-            
+
             <div class="flex-col">
-              <div class="brutal-card p-3 flex-row justify-between w-full" style="box-shadow: 4px 4px var(--border-color);">
+              <div class="brutal-card p-3 flex-row justify-between w-full"
+                style="box-shadow: 4px 4px var(--border-color);">
                 <div class="flex-row">
                   <div class="avatar">MA</div>
                   <div>
@@ -914,7 +964,8 @@
                 <button class="brutal-btn brutal-btn-sm btn-white">Permissions</button>
               </div>
 
-              <div class="brutal-card p-3 flex-row justify-between w-full" style="box-shadow: 4px 4px var(--border-color);">
+              <div class="brutal-card p-3 flex-row justify-between w-full"
+                style="box-shadow: 4px 4px var(--border-color);">
                 <div class="flex-row">
                   <div class="avatar" style="background-color: var(--primary-color);">JD</div>
                   <div>
@@ -925,7 +976,8 @@
                 <button class="brutal-btn brutal-btn-sm btn-white">Permissions</button>
               </div>
 
-              <div class="brutal-card p-3 flex-row justify-between w-full" style="box-shadow: 4px 4px var(--border-color);">
+              <div class="brutal-card p-3 flex-row justify-between w-full"
+                style="box-shadow: 4px 4px var(--border-color);">
                 <div class="flex-row">
                   <div class="avatar" style="background-color: var(--accent-color);">RH</div>
                   <div>
@@ -953,12 +1005,14 @@
       </div>
       <div class="brutal-modal-body">
         <p>Welcome to <strong>Soft Neo Brutalism</strong>, a custom neo-brutalist CSS design system template.</p>
-        <p>This design system implements high-contrast components using custom variables, custom form inputs, timeline widgets, metrics cards, code components, and responsive grid helpers.</p>
+        <p>This design system implements high-contrast components using custom variables, custom form inputs, timeline
+          widgets, metrics cards, code components, and responsive grid helpers.</p>
         <div class="brutal-alert alert-info mt-2">
           <div class="alert-icon">ℹ</div>
           <div class="alert-content">
             <h4>Ready to use CSS</h4>
-            <p>Simply copy the stylesheet located in <code>css/design-system.css</code> into your web project root folder.</p>
+            <p>Simply copy the stylesheet located in <code>css/design-system.css</code> into your web project root
+              folder.</p>
           </div>
         </div>
       </div>
@@ -972,9 +1026,7 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
-      &copy; 2026 Soft Neo Brutalism. All rights reserved. <br>
-      <p class="small-text mt-2">Pair programmed with Antigravity, Google DeepMind's agentic AI assistant.</p>
-    </div>
+      &copy; 2026 Soft Neo Brutalism. All rights reserved.</div>
   </footer>
 
   <!-- Interactive JavaScript -->
@@ -1063,7 +1115,7 @@
       const tabButton = evt.currentTarget;
       const tabContainer = tabButton.closest('.brutal-tabs') || tabButton.parentElement;
       const tabLinks = tabContainer.querySelectorAll('.tab-link');
-      
+
       const wrapper = tabContainer.parentElement;
       const tabContents = wrapper.querySelectorAll('.tab-content');
 
@@ -1116,4 +1168,5 @@
     }
   </script>
 </body>
+
 </html>
