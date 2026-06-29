@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soft Neo Brutalism - Design System Showcase</title>
+  <meta name="description" content="A complete Neo-Brutalist Design System inspired by the Frost-E Robotics styling. Features blogs, dashboards, SaaS apps, and a full playground.">
+  <link rel="stylesheet" href="css/design-system.css">
+  <style>
+    /* Inline styles specifically for the showcase page wrapper and dashboard demo */
+    .showcase-header {
+      background-color: var(--business-color);
+      padding: 3rem 1.5rem;
+      border-bottom: var(--brutal-border);
+      text-align: center;
+      position: relative;
+    }
+    
+    .showcase-header h1 {
+      margin-bottom: 0.5rem;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+    }
+    
+    .showcase-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-weight: var(--font-bold);
+    }
+
+    .theme-toggle-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+    }
+
+    .section-nav {
+      background: #ffffff;
+      border-bottom: var(--brutal-border);
+      position: sticky;
+      top: 80px;
+      z-index: 98;
+      padding: 0.75rem 0;
+    }
+
+    .section-nav .container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-tab-btn {
+      background: #ffffff;
+      border: var(--brutal-border-thin);
+      border-radius: var(--brutal-radius-sm);
+      padding: 0.5rem 1.25rem;
+      font-weight: var(--font-black);
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 3px 3px 0px var(--border-color);
+      transition: all var(--brutal-transition);
+    }
+
+    .nav-tab-btn:hover {
+      transform: none;
+      background-color: var(--bg-color);
+    }
+
+    .nav-tab-btn:active {
+      transform: translate(3px, 3px);
+      box-shadow: 0px 0px 0px var(--border-color);
+    }
+
+    .nav-tab-btn.active {
+      background-color: var(--accent-color);
+      box-shadow: 3px 3px 0px var(--border-color);
+      transform: none;
+    }
+
+    .showcase-section {
+      display: none;
+      animation: brutalFadeIn 0.4s ease forwards;
+    }
+
+    .showcase-section.active {
+      display: block;
+    }
+
+    /* Kanban Card Board */
+    .kanban-board {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .kanban-board {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .kanban-column {
+      background-color: #ffffff;
+      border: var(--brutal-border);
+      border-radius: var(--brutal-radius);
+      padding: 1.5rem;
+      box-shadow: var(--brutal-shadow-sm);
+    }
+
+    .kanban-header {
+      font-size: 1.25rem;
+      font-weight: var(--font-black);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: var(--brutal-border-thin);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .kanban-tasks {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      min-height: 200px;
+    }
+
+    .kanban-card {
+      background: var(--bg-color);
+      border: var(--brutal-border-thin);
+      border-radius: var(--brutal-radius-sm);
+      padding: 1rem;
+      box-shadow: 3px 3px 0px var(--border-color);
+      transition: all var(--brutal-transition);
+      cursor: grab;
+    }
+
+    .kanban-card:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px var(--border-color);
+    }
+
+    .doc-section {
+      margin-bottom: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: var(--brutal-border-thin);
+    }
+    .doc-section:last-child {
+      border-bottom: none;
+    }
+
+    .doc-section-title {
+      display: inline-block;
+      background-color: var(--primary-color);
+      border: var(--brutal-border-thin);
+      padding: 0.25rem 1rem;
+      margin-bottom: 2rem;
+      transform: rotate(-1deg);
+      box-shadow: 3px 3px 0px var(--border-color);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Global Navbar -->
+  <header class="brutal-navbar">
+    <div class="container flex-row justify-between">
+      <a href="#" class="navbar-brand">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(2px 2px 0px var(--border-color));">
+          <rect x="2" y="2" width="28" height="28" rx="6" fill="#fde047" stroke="#0d0d0d" stroke-width="3"/>
+          <path d="M8 8H24V24H8V8Z" fill="#a7f3d0" stroke="#0d0d0d" stroke-width="3"/>
+          <path d="M12 12H20V20H12V12Z" fill="#fca5a5" stroke="#0d0d0d" stroke-width="3"/>
+        </svg>
+        <span>Soft Neo Brutalism</span>
+      </a>
+      <nav class="navbar-nav">
+        <a href="#playground" class="tab-trigger active" data-target="playground">UI Playground</a>
+        <a href="#blog" class="tab-trigger" data-target="blog">Blog/Reader</a>
+        <a href="#dashboard" class="tab-trigger" data-target="dashboard">Dashboard</a>
+        <a href="#app" class="tab-trigger" data-target="app">App Console</a>
+      </nav>
+      <div class="flex-row">
+        <button class="brutal-btn brutal-btn-sm btn-primary modal-trigger-btn">Docs</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Showcase Header Banner -->
+  <section class="showcase-header">
+    <div class="container">
+      <h1>Soft Neo Brutalism</h1>
+      <p>A high-contrast, premium, responsive layout framework built with bold outlines, vibrant pastels, offset shadows, and modern typography.</p>
+    </div>
+  </section>
+
+  <!-- Navigation for showcasing different contexts -->
+  <div class="section-nav">
+    <div class="container">
+      <button class="nav-tab-btn active tab-trigger" data-target="playground">⚙️ Elements Playground</button>
+      <button class="nav-tab-btn tab-trigger" data-target="blog">📚 Blog & Reading Layout</button>
+      <button class="nav-tab-btn tab-trigger" data-target="dashboard">📊 Operations Dashboard</button>
+      <button class="nav-tab-btn tab-trigger" data-target="app">🛠️ SaaS App Console</button>
+    </div>
+  </div>
+
+  <main class="container mt-4 mb-5">
+
+    <!-- ==========================================
+         VIEW 1: PLAYGROUND SECTION
+         ========================================== -->
+    <section id="playground" class="showcase-section active">
+      
+      <!-- Typography Section -->
+      <div class="doc-section">
+        <h2 class="doc-section-title">01. Typography</h2>
+        <div class="brutal-card">
+          <h1>H1 Title — Soft Brutalist Header</h1>
+          <h2>H2 Title — Section Sub-heading</h2>
+          <h3>H3 Title — Column and Card Title</h3>
+          <h4>H4 Title — Small Component Label</h4>
+          
+          <brutal-divider-thick class="brutal-divider"></brutal-divider-thick>
+
+          <p class="lead">Lead paragraph: This is a bold lead description. It highlights primary statements using heavier font weights and slightly larger formatting.</p>
+          <p>Body paragraph: Antigravity is a powerful agentic AI coding assistant designed by Google DeepMind. Standard text looks highly readable with a 1.6 line height and is set in <code>Inter</code>, a clean, modern sans-serif font family. It is optimized for both readability and strict style compliance.</p>
+          
+          <blockquote>
+            "Neo-Brutality rejects the sterile gradient and soft-shadow aesthetics of the Web 2.0 era, returning to high contrast borders, flat colors, and absolute structured grid layouts."
+          </blockquote>
+          
+          <p class="small-text">Small text: Designed for metadata, timestamps, and secondary captions.</p>
+        </div>
+      </div>
+
+      <!-- Buttons Section -->
+      <div class="doc-section">
+        <h2 class="doc-section-title">02. Buttons & Actions</h2>
+        <div class="brutal-card bg-cream">
+          <div class="flex-col">
+            <h4 class="mb-2">Standard Brutalist Buttons (Hover / Active States)</h4>
+            <div class="flex-row flex-wrap">
+              <button class="brutal-btn btn-primary">Primary Mint</button>
+              <button class="brutal-btn btn-secondary">Secondary Pink</button>
+              <button class="brutal-btn btn-yellow">Yellow Brand</button>
+              <button class="brutal-btn btn-coral">Coral Accent</button>
+              <button class="brutal-btn btn-purple">Purple Accent</button>
+              <button class="brutal-btn btn-white">White Button</button>
+              <button class="brutal-btn" disabled>Disabled State</button>
+            </div>
+            
+            <h4 class="mt-4 mb-2">Sizing & Icon Variants</h4>
+            <div class="flex-row flex-wrap align-start">
+              <button class="brutal-btn brutal-btn-lg btn-yellow">Large Button ⚡</button>
+              <button class="brutal-btn btn-primary">Standard Button 🚜</button>
+              <button class="brutal-btn brutal-btn-sm btn-secondary">Small Button</button>
+              
+              <button class="brutal-btn btn-icon btn-coral" aria-label="Settings">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+              <button class="brutal-btn btn-icon btn-primary" aria-label="Search">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Controls Section -->
+      <div class="doc-section">
+        <h2 class="doc-section-title">03. Forms & Inputs</h2>
+        <div class="grid grid-2">
+          <fieldset>
+            <legend>Robot Configuration</legend>
+            <div class="form-group">
+              <label class="form-label" for="ex-text">Text Input</label>
+              <input type="text" id="ex-text" class="form-control" placeholder="Enter robot serial name...">
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="ex-select">Select Walkway Type</label>
+              <select id="ex-select" class="form-control">
+                <option value="step">Concrete Steps</option>
+                <option value="walk">Standard Sidewalk</option>
+                <option value="plaza">Large Plaza / Courtyard</option>
+                <option value="deck">Wooden Patio/Deck</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ex-textarea">Duty of Care Notes</label>
+              <textarea id="ex-textarea" class="form-control" placeholder="Notes on site accumulation..."></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Selection Widgets</legend>
+            <div class="flex-col">
+              <!-- Custom Checkboxes -->
+              <label class="checkbox-group">
+                <input type="checkbox" checked>
+                <span class="checkmark"></span>
+                <span class="text-bold">Continuous Clearing Active</span>
+              </label>
+              <label class="checkbox-group">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                <span class="text-bold">Liquid Brine Spray Enabled</span>
+              </label>
+
+              <hr class="brutal-divider">
+
+              <!-- Custom Radios -->
+              <label class="radio-group">
+                <input type="radio" name="speed-opt" checked>
+                <span class="radiomark"></span>
+                <span class="text-bold">Eco Mode (Walking Speed - 3.6km/h)</span>
+              </label>
+              <label class="radio-group">
+                <input type="radio" name="speed-opt">
+                <span class="radiomark"></span>
+                <span class="text-bold">Fast Clear (Max Speed - 5.0km/h)</span>
+              </label>
+
+              <hr class="brutal-divider">
+
+              <!-- Switch & Slider -->
+              <div class="flex-row justify-between w-full">
+                <span class="text-bold">AUTONOMOUS MODE OVERRIDE</span>
+                <label class="switch">
+                  <input type="checkbox" id="auth-override">
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="form-group mt-3">
+                <div class="flex-row justify-between">
+                  <label class="form-label">Brine Spray Volume</label>
+                  <span class="text-bold" id="range-val">50%</span>
+                </div>
+                <input type="range" class="brutal-range" id="brine-range" min="0" max="100" value="50">
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+      <!-- Cards & Badges Section -->
+      <div class="doc-section">
+        <h2 class="doc-section-title">04. Cards & Badge Overrides</h2>
+        <div class="grid grid-3">
+          <!-- Brutal card 1 -->
+          <div class="brutal-card brutal-card-hover">
+            <span class="card-badge">System OK</span>
+            <div class="card-header">
+              <h4>System Unit E-01</h4>
+            </div>
+            <p>A compact, tracked electric chassis designed specifically to maneuver where heavy equipment cannot operate.</p>
+            <div class="card-footer">
+              <span class="small-text">Updated 2m ago</span>
+              <button class="brutal-btn brutal-btn-sm btn-primary">Details</button>
+            </div>
+          </div>
+
+          <!-- Brutal card 2 -->
+          <div class="brutal-card brutal-card-hover card-secondary">
+            <div class="card-header">
+              <h4>Battery Depleted</h4>
+              <span class="brutal-badge badge-error shadow-sm">Warning</span>
+            </div>
+            <p>Frost-E unit 04 has hit 12% battery remaining. Returning to residential 120V docking station immediately.</p>
+            <div class="card-footer">
+              <span class="text-bold">Docking status: Pending</span>
+            </div>
+          </div>
+
+          <!-- Brutal card 3 -->
+          <div class="brutal-card brutal-card-hover card-yellow">
+            <div class="card-header">
+              <h4>Brine Spray Refill</h4>
+              <span class="brutal-badge badge-success shadow-sm">Info</span>
+            </div>
+            <p>LIDAR system detected thin ice layer forming on front steps. Applied 4.5L brine spray buffer successfully.</p>
+            <div class="card-footer">
+              <span class="small-text">Today at 13:04</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alerts & Tooltips -->
+      <div class="doc-section">
+        <h2 class="doc-section-title">05. Notification & Feedback States</h2>
+        <div class="grid grid-2">
+          <div>
+            <div class="brutal-alert alert-success">
+              <div class="alert-icon">✓</div>
+              <div class="alert-content">
+                <h4>System Activated Successfully</h4>
+                <p>All safety exclusion checkups are complete. LiDAR unit calibrated. Ready to deploy.</p>
+              </div>
+            </div>
+            <div class="brutal-alert alert-warning">
+              <div class="alert-icon">⚠</div>
+              <div class="alert-content">
+                <h4>Obstacle Exclusion Warning</h4>
+                <p>A persistent path obstruction has been detected in Sector G. Speed capped at 1.0m/s.</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="brutal-alert alert-error">
+              <div class="alert-icon">✕</div>
+              <div class="alert-content">
+                <h4>LiDAR Signal Interruption</h4>
+                <p>LiDAR signal blocked. Robot halted immediately. Emergency operator requested to review.</p>
+              </div>
+            </div>
+            
+            <div class="brutal-card flex-col align-start">
+              <h4>Interactive Tooltip Demos</h4>
+              <p>Hover over the elements below to view their structural Neo-Brutalist metadata captions:</p>
+              <div class="flex-row">
+                <div class="brutal-tooltip-container">
+                  <span class="brutal-badge badge-purple">Hover over me!</span>
+                  <span class="brutal-tooltip">This is a Neo-Brutalist Tooltip!</span>
+                </div>
+                <div class="brutal-tooltip-container">
+                  <button class="brutal-btn brutal-btn-sm btn-yellow">Help ⚙</button>
+                  <span class="brutal-tooltip">Clicking will reveal the help center logs.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Table -->
+      <div class="doc-section">
+        <h2 class="doc-section-title">06. Structured Data Tables</h2>
+        <div class="table-wrapper">
+          <table class="brutal-table">
+            <thead>
+              <tr>
+                <th>Robot Name</th>
+                <th>Site Deployment</th>
+                <th>Status</th>
+                <th>Battery</th>
+                <th>Last Active</th>
+                <th class="text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Frost-E alpha</td>
+                <td>Townhouse Court A</td>
+                <td><span class="brutal-badge badge-primary">Clearing</span></td>
+                <td>82%</td>
+                <td>Active now</td>
+                <td class="text-right"><button class="brutal-btn brutal-btn-sm btn-white">Manage</button></td>
+              </tr>
+              <tr>
+                <td>Frost-E beta</td>
+                <td>Commercial Plaza West</td>
+                <td><span class="brutal-badge badge-success">Docked</span></td>
+                <td>100%</td>
+                <td>12m ago</td>
+                <td class="text-right"><button class="brutal-btn brutal-btn-sm btn-white">Manage</button></td>
+              </tr>
+              <tr>
+                <td>Frost-E gamma</td>
+                <td>High-School Pathway B</td>
+                <td><span class="brutal-badge badge-pink">Halted</span></td>
+                <td>41%</td>
+                <td>1h ago</td>
+                <td class="text-right"><button class="brutal-btn brutal-btn-sm btn-white">Manage</button></td>
+              </tr>
+              <tr>
+                <td>Frost-E delta</td>
+                <td>Office Courtyard East</td>
+                <td><span class="brutal-badge badge-error">Faulted</span></td>
+                <td>12%</td>
+                <td>3h ago</td>
+                <td class="text-right"><button class="brutal-btn brutal-btn-sm btn-white">Manage</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tabs & Progress Bars -->
+      <div class="doc-section">
+        <h2 class="doc-section-title">07. Tabs, Progress & Interaction</h2>
+        <div class="grid grid-2">
+          <div>
+            <h4>Live Interactive Tabs</h4>
+            <div class="brutal-tabs mt-3">
+              <button class="tab-link active" onclick="openShowcaseTab(event, 'tab-a')">Specs</button>
+              <button class="tab-link" onclick="openShowcaseTab(event, 'tab-b')">Telemetry</button>
+              <button class="tab-link" onclick="openShowcaseTab(event, 'tab-c')">Payload</button>
+            </div>
+            <div class="tab-panel-card">
+              <div id="tab-a" class="tab-content active">
+                <p>Chassis: Tracked electric mini-loader with 120V residential dock.</p>
+                <p>Speed limits: Max 3.6km/h autonomous clearing speed.</p>
+              </div>
+              <div id="tab-b" class="tab-content">
+                <p>LiDAR: 360-degree, 16-channel, active safety scan rate 10Hz.</p>
+                <p>IMU: Dual-axis gyro with active roll-over stabilization system.</p>
+              </div>
+              <div id="tab-c" class="tab-content">
+                <p>Fluid tank: 15L capacity liquid brine spray buffer system.</p>
+                <p>Clearing plow: 48-inch steel-edge structural spring scraper blade.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="brutal-card">
+            <h4>Progress & Sliders</h4>
+            <div class="flex-col">
+              <div>
+                <div class="flex-row justify-between mb-1">
+                  <span class="text-bold">Scraping progress:</span>
+                  <span class="text-bold" id="progress-percent">75%</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar progress-bar-striped" id="demo-progress-bar" style="width: 75%;"></div>
+                </div>
+              </div>
+
+              <div class="flex-row mt-2">
+                <button class="brutal-btn brutal-btn-sm btn-primary" onclick="updateProgressBar(25)">25%</button>
+                <button class="brutal-btn brutal-btn-sm btn-secondary" onclick="updateProgressBar(50)">50%</button>
+                <button class="brutal-btn brutal-btn-sm btn-yellow" onclick="updateProgressBar(75)">75%</button>
+                <button class="brutal-btn brutal-btn-sm btn-coral" onclick="updateProgressBar(100)">100%</button>
+              </div>
+
+              <hr class="brutal-divider">
+
+              <div>
+                <span class="text-bold">Active User Avatars</span>
+                <div class="flex-row mt-2">
+                  <div class="avatar-group">
+                    <div class="avatar">M</div>
+                    <div class="avatar">R</div>
+                    <div class="avatar">JD</div>
+                    <div class="avatar">+4</div>
+                  </div>
+                  <div class="avatar-chip">
+                    <div class="avatar" style="width:28px; height:28px; font-size: 0.7rem; border-radius: 50%;">A</div>
+                    <span>Operator active</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         VIEW 2: BLOG / READING LAYOUT
+         ========================================== -->
+    <section id="blog" class="showcase-section">
+      <div class="blog-layout brutal-card">
+        <div class="blog-meta">
+          <span class="brutal-badge badge-primary">Industry News</span>
+          <span class="text-bold">Published: June 29, 2026</span>
+          <span class="text-muted">• 5 min read</span>
+        </div>
+        
+        <h1 class="mb-4">How Autonomous Detail Work is Saving Snow Contractors Up to 40% on Route Times</h1>
+        
+        <!-- Mock image layout with custom border style -->
+        <div class="chart-placeholder mb-4" style="height: 380px; background-color: var(--primary-color);">
+          <div class="flex-col text-center">
+            <span style="font-size: 4rem;">🚜</span>
+            <span class="text-bold" style="font-size: 1.5rem; text-transform: uppercase;">Image Mockup: Frost-E Clears Townhouse Step Paths</span>
+          </div>
+        </div>
+
+        <div class="blog-post-content">
+          <p class="lead">Every winter, commercial snow removal fleets face the exact same bottleneck: detail work. While large 8-ton plow trucks clear parking lots in minutes, sidewalks, townhouse steps, and building entrances force shovelers to do manual, high-liability labor.</p>
+          
+          <p>This is where autonomous resident loaders are changing the math. By parking a dedicated detail robot on site inside a weatherproof charging dock, snow contractors are clearing walkways continuously before their main crew even arrives. The result is a dramatically reduced site visit time and a cleaner path for building occupants.</p>
+          
+          <blockquote>
+            "We used to send a truck with three shovelers for four hours to clear the courtyard. Now, we send one driver to clear the main lot. The paths are already cleared. We're in and out in 10 minutes."
+          </blockquote>
+
+          <h3 class="mt-4 mb-2">Eliminating Call-Outs & Slip-and-Fall Claims</h3>
+          <p>Detail work isn't just slow—it is the primary driver of slip-and-fall litigation. Municipal by-laws require public walkways to be cleared within a few hours of snowfall, creating huge pressure on dispatch hubs. Resident robots monitor site conditions in real-time, clearing paths as snow falls rather than hours later.</p>
+
+          <ul class="safety-list mb-4">
+            <li><strong>Continuous Site Auditing:</strong> The built-in LiDAR maps generate timestamps and visual proof of clearing passes.</li>
+            <li><strong>Liquid Brine Advantage:</strong> Applying liquid salt preventatively prevents ice-bonding, making subsequent plow passes twice as fast.</li>
+            <li><strong>Reduced Payroll Pressure:</strong> Staffing shortages vanish when your truck crews no longer need custom shoveler details.</li>
+          </ul>
+
+          <p>By shifting to an asset-heavy, resident robot approach, site managers guarantee clear paths all day long while insurance agencies provide premium discounts due to immutable duty of care proof.</p>
+        </div>
+
+        <div class="blog-author-card">
+          <div class="avatar" style="width: 80px; height: 80px; font-size: 2rem;">MA</div>
+          <div>
+            <h4 class="m-0">Martin Albright</h4>
+            <p class="small-text m-0">Head of Robotics R&D, Frost-E Solutions</p>
+            <p class="mt-2 m-0" style="font-size: 0.95rem;">Martin oversees autonomous chassis integration and ROS 2 localization mapping filters for cold-weather deployments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         VIEW 3: OPERATIONS DASHBOARD
+         ========================================== -->
+    <section id="dashboard" class="showcase-section">
+      <div class="flex-col">
+        
+        <!-- Dashboard Toolbar -->
+        <div class="brutal-card p-3 flex-row justify-between flex-wrap">
+          <div class="flex-row">
+            <span style="font-size: 1.5rem;">📊</span>
+            <h3 class="m-0">Operations Control Board</h3>
+          </div>
+          <div class="flex-row flex-wrap">
+            <button class="brutal-btn brutal-btn-sm btn-primary" onclick="randomizeDashboardChart()">⚡ Refresh Data</button>
+            <button class="brutal-btn brutal-btn-sm btn-yellow">Export CSV</button>
+            <select class="form-control" style="width: 180px; box-shadow: 2px 2px 0px var(--border-color); padding: 0.4rem 1rem;">
+              <option>All Plazas</option>
+              <option>East Region</option>
+              <option>West Region</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="grid grid-4">
+          <div class="brutal-card metric-card card-primary">
+            <span class="text-bold">Active Robots</span>
+            <div class="metric-value">12 / 14</div>
+            <div class="metric-trend up">✓ 86% Utility</div>
+          </div>
+          <div class="brutal-card metric-card card-secondary">
+            <span class="text-bold">Total Paths Cleared</span>
+            <div class="metric-value">148</div>
+            <div class="metric-trend up">↑ +24% Today</div>
+          </div>
+          <div class="brutal-card metric-card card-yellow">
+            <span class="text-bold">Active Warnings</span>
+            <div class="metric-value">2</div>
+            <div class="metric-trend down">⚠ Minor Drift</div>
+          </div>
+          <div class="brutal-card metric-card card-pink">
+            <span class="text-bold">Brine Fluid Level</span>
+            <div class="metric-value">84%</div>
+            <div class="metric-trend up">✓ Sufficient</div>
+          </div>
+        </div>
+
+        <!-- Chart & Main Grid -->
+        <div class="grid grid-3">
+          <!-- Main Chart Card -->
+          <div class="brutal-card" style="grid-column: span 2;">
+            <div class="card-header">
+              <h4>Hourly Snow Accumulation vs Clearing Cycles</h4>
+              <span class="brutal-badge badge-purple">Real-Time (cm)</span>
+            </div>
+            
+            <!-- Live mock bar chart -->
+            <div class="chart-placeholder">
+              <div class="chart-bar-container" id="dashboard-chart">
+                <div class="chart-bar" style="height: 30%;" title="8:00 AM"></div>
+                <div class="chart-bar" style="height: 45%;" title="10:00 AM"></div>
+                <div class="chart-bar" style="height: 85%;" title="12:00 PM"></div>
+                <div class="chart-bar" style="height: 60%;" title="2:00 PM"></div>
+                <div class="chart-bar" style="height: 40%;" title="4:00 PM"></div>
+                <div class="chart-bar" style="height: 95%;" title="6:00 PM"></div>
+                <div class="chart-bar" style="height: 70%;" title="8:00 PM"></div>
+              </div>
+            </div>
+            
+            <div class="flex-row justify-between mt-3">
+              <span class="small-text">Accumulation peaking at 18:00 (9.5 cm)</span>
+              <span class="small-text">Auto-refresh: 30s</span>
+            </div>
+          </div>
+
+          <!-- Activity Side Card -->
+          <div class="brutal-card">
+            <h4>Live Feed</h4>
+            <hr class="brutal-divider">
+            <div class="activity-list">
+              <div class="activity-item">
+                <div class="activity-dot bg-mint"></div>
+                <div>
+                  <span class="text-bold">Unit Alpha:</span>
+                  <p class="m-0 small-text">Completed clearing path court 2</p>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot bg-yellow"></div>
+                <div>
+                  <span class="text-bold">Unit Delta:</span>
+                  <p class="m-0 small-text">LiDAR target warning cleared</p>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot bg-coral"></div>
+                <div>
+                  <span class="text-bold">Unit Gamma:</span>
+                  <p class="m-0 small-text">Low Battery returns to base</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Events Table -->
+        <div class="brutal-card">
+          <h4>Recent Duty-of-Care Log Entries</h4>
+          <hr class="brutal-divider">
+          <div class="table-wrapper m-0">
+            <table class="brutal-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Location</th>
+                  <th>Robot ID</th>
+                  <th>Clearing Event Details</th>
+                  <th>Proof Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>13:21:40</td>
+                  <td>Residential Plaza B</td>
+                  <td>#E-0129</td>
+                  <td>Brine spray pre-treatment applied on concrete walkways</td>
+                  <td><span class="brutal-badge badge-success">Saved to Ledger</span></td>
+                </tr>
+                <tr>
+                  <td>13:04:12</td>
+                  <td>Court A Steps</td>
+                  <td>#E-0124</td>
+                  <td>Cleared 3.2cm powdery snow. 3 cycles complete.</td>
+                  <td><span class="brutal-badge badge-success">Saved to Ledger</span></td>
+                </tr>
+                <tr>
+                  <td>12:45:00</td>
+                  <td>High school lane</td>
+                  <td>#E-0089</td>
+                  <td>Halted: Exceeded proximity buffer (person detected)</td>
+                  <td><span class="brutal-badge badge-pink">Flagged review</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         VIEW 4: APP CONSOLE / SAAS INTERFACE
+         ========================================== -->
+    <section id="app" class="showcase-section">
+      <div class="brutal-card app-layout p-0">
+        
+        <!-- Sidebar Navigation inside App container -->
+        <aside class="app-sidebar">
+          <div class="sidebar-menu">
+            <h4 class="mb-3 text-muted" style="font-size: 0.75rem;">Main Panel</h4>
+            <a href="#" class="sidebar-link active app-subtab-trigger" data-target="app-settings">
+              <span>⚙</span> Settings
+            </a>
+            <a href="#" class="sidebar-link app-subtab-trigger" data-target="app-tasks">
+              <span>✓</span> Tasks Board
+            </a>
+            <a href="#" class="sidebar-link app-subtab-trigger" data-target="app-users">
+              <span>👥</span> User Roles
+            </a>
+          </div>
+          
+          <div class="brutal-card p-3 text-center card-yellow" style="box-shadow: 2px 2px 0px var(--border-color);">
+            <h4 style="font-size: 0.9rem;">Fleet Active</h4>
+            <p class="m-0 small-text">Version 4.2.1</p>
+          </div>
+        </aside>
+
+        <!-- Dynamic subcontents of app panel -->
+        <div class="app-content">
+          
+          <!-- Subtab 1: settings -->
+          <div id="app-settings" class="app-subcontent active">
+            <h3>Fleet Safety Configuration</h3>
+            <p>Modify local emergency cutoff parameters and operational thresholds below.</p>
+            <hr class="brutal-divider">
+            
+            <div class="grid grid-2">
+              <div class="form-group">
+                <label class="form-label">Active Proximity Exclusion Radius</label>
+                <select class="form-control">
+                  <option>3 Meters (Recommended)</option>
+                  <option>5 Meters (High Traffic)</option>
+                  <option>1.5 Meters (Restricted Zone)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Auto-Stop Reaction Latency</label>
+                <select class="form-control">
+                  <option>100ms (Real-Time Safety)</option>
+                  <option>250ms (Balanced)</option>
+                  <option>500ms (Low Bandwidth)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group mt-3">
+              <label class="checkbox-group">
+                <input type="checkbox" checked>
+                <span class="checkmark"></span>
+                <span class="text-bold">Enable cellular back-haul remote camera streaming</span>
+              </label>
+              <label class="checkbox-group">
+                <input type="checkbox" checked>
+                <span class="checkmark"></span>
+                <span class="text-bold">Auto-deploy brine spray when temperature hits &lt; 0°C</span>
+              </label>
+            </div>
+
+            <hr class="brutal-divider">
+
+            <div class="flex-row">
+              <button class="brutal-btn btn-primary" onclick="alert('Settings saved successfully!')">Save Fleet Settings</button>
+              <button class="brutal-btn btn-white">Reset Default</button>
+            </div>
+          </div>
+
+          <!-- Subtab 2: Task board -->
+          <div id="app-tasks" class="app-subcontent" style="display: none;">
+            <div class="flex-row justify-between flex-wrap">
+              <h3>Task Dispatch Board</h3>
+              <button class="brutal-btn brutal-btn-sm btn-secondary modal-trigger-btn">+ Dispatch Task</button>
+            </div>
+            <p>Drag, drop, and coordinate robotic snow tasks across regional sectors.</p>
+            <hr class="brutal-divider">
+
+            <!-- Kanban Columns -->
+            <div class="kanban-board">
+              <div class="kanban-column">
+                <div class="kanban-header">
+                  <span>Queued</span>
+                  <span class="brutal-badge badge-blue shadow-sm">3</span>
+                </div>
+                <div class="kanban-tasks">
+                  <div class="kanban-card">
+                    <span class="brutal-badge badge-yellow" style="font-size:0.65rem; padding: 0.1rem 0.4rem; box-shadow: 1px 1px var(--border-color);">Plaza A</span>
+                    <h5 class="mt-2">Clear Main Walkway</h5>
+                    <p class="m-0 small-text mt-1">Pre-brine application required</p>
+                  </div>
+                  <div class="kanban-card">
+                    <span class="brutal-badge badge-purple" style="font-size:0.65rem; padding: 0.1rem 0.4rem; box-shadow: 1px 1px var(--border-color);">Plaza C</span>
+                    <h5 class="mt-2">Calibrate LiDAR sensors</h5>
+                    <p class="m-0 small-text mt-1">Unit reports slight offset</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="kanban-column">
+                <div class="kanban-header">
+                  <span>In Progress</span>
+                  <span class="brutal-badge badge-pink shadow-sm">1</span>
+                </div>
+                <div class="kanban-tasks">
+                  <div class="kanban-card" style="border-left: 6px solid var(--accent-color);">
+                    <span class="brutal-badge badge-primary" style="font-size:0.65rem; padding: 0.1rem 0.4rem; box-shadow: 1px 1px var(--border-color);">Court B</span>
+                    <h5 class="mt-2">Step Clearing Pass</h5>
+                    <p class="m-0 small-text mt-1">Robot #E-0129 actively clearing steps</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="kanban-column">
+                <div class="kanban-header">
+                  <span>Completed</span>
+                  <span class="brutal-badge badge-success shadow-sm">2</span>
+                </div>
+                <div class="kanban-tasks">
+                  <div class="kanban-card">
+                    <span class="brutal-badge badge-success" style="font-size:0.65rem; padding: 0.1rem 0.4rem; box-shadow: 1px 1px var(--border-color);">Station 1</span>
+                    <h5 class="mt-2">Charging Cycle</h5>
+                    <p class="m-0 small-text mt-1">Beta charged to 100%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subtab 3: users -->
+          <div id="app-users" class="app-subcontent" style="display: none;">
+            <h3>User Roles & Operators</h3>
+            <p>Manage human supervisors authorized to take remote camera control of robots.</p>
+            <hr class="brutal-divider">
+            
+            <div class="flex-col">
+              <div class="brutal-card p-3 flex-row justify-between w-full" style="box-shadow: 4px 4px var(--border-color);">
+                <div class="flex-row">
+                  <div class="avatar">MA</div>
+                  <div>
+                    <h4 class="m-0">Martin Albright</h4>
+                    <span class="small-text">Super-Admin</span>
+                  </div>
+                </div>
+                <button class="brutal-btn brutal-btn-sm btn-white">Permissions</button>
+              </div>
+
+              <div class="brutal-card p-3 flex-row justify-between w-full" style="box-shadow: 4px 4px var(--border-color);">
+                <div class="flex-row">
+                  <div class="avatar" style="background-color: var(--primary-color);">JD</div>
+                  <div>
+                    <h4 class="m-0">Jane Doe</h4>
+                    <span class="small-text">Regional Dispatcher</span>
+                  </div>
+                </div>
+                <button class="brutal-btn brutal-btn-sm btn-white">Permissions</button>
+              </div>
+
+              <div class="brutal-card p-3 flex-row justify-between w-full" style="box-shadow: 4px 4px var(--border-color);">
+                <div class="flex-row">
+                  <div class="avatar" style="background-color: var(--accent-color);">RH</div>
+                  <div>
+                    <h4 class="m-0">Rob Harris</h4>
+                    <span class="small-text">Field Tech Operator</span>
+                  </div>
+                </div>
+                <button class="brutal-btn brutal-btn-sm btn-white">Permissions</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Neo-Brutalist Dialog Modal Overlay -->
+  <div class="brutal-modal-backdrop" id="docs-modal-backdrop">
+    <div class="brutal-modal">
+      <div class="brutal-modal-header">
+        <h4 class="m-0">Documentation Info</h4>
+        <button class="modal-close-btn" id="docs-modal-close">✕</button>
+      </div>
+      <div class="brutal-modal-body">
+        <p>Welcome to <strong>Soft Neo Brutalism</strong>, a custom neo-brutalist CSS design system template.</p>
+        <p>This design system implements high-contrast components using custom variables, custom form inputs, timeline widgets, metrics cards, code components, and responsive grid helpers.</p>
+        <div class="brutal-alert alert-info mt-2">
+          <div class="alert-icon">ℹ</div>
+          <div class="alert-content">
+            <h4>Ready to use CSS</h4>
+            <p>Simply copy the stylesheet located in <code>css/design-system.css</code> into your web project root folder.</p>
+          </div>
+        </div>
+      </div>
+      <div class="brutal-modal-footer">
+        <button class="brutal-btn brutal-btn-sm btn-white" id="docs-modal-dismiss">Dismiss</button>
+        <button class="brutal-btn brutal-btn-sm btn-primary" onclick="window.print()">Print Details</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2026 Soft Neo Brutalism. All rights reserved. <br>
+      <p class="small-text mt-2">Pair programmed with Antigravity, Google DeepMind's agentic AI assistant.</p>
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // 1. Navbar and tab trigger view switcher
+    const tabTriggers = document.querySelectorAll('.tab-trigger');
+    const sections = document.querySelectorAll('.showcase-section');
+
+    tabTriggers.forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = trigger.getAttribute('data-target');
+
+        // Update all triggers matching data-target to sync top header nav and secondary category nav
+        tabTriggers.forEach(btn => {
+          if (btn.getAttribute('data-target') === target) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+
+        // Toggle visibility of sections
+        sections.forEach(sec => {
+          if (sec.id === target) {
+            sec.classList.add('active');
+          } else {
+            sec.classList.remove('active');
+          }
+        });
+
+        // Smooth scroll to top of section-nav container to focus on the section
+        const navOffset = document.querySelector('.section-nav').offsetTop - 80;
+        window.scrollTo({
+          top: navOffset,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // 2. Subtab switcher in App Console sidebar
+    const subtabTriggers = document.querySelectorAll('.app-subtab-trigger');
+    const subcontents = document.querySelectorAll('.app-subcontent');
+
+    subtabTriggers.forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = trigger.getAttribute('data-target');
+
+        subtabTriggers.forEach(btn => btn.classList.remove('active'));
+        trigger.classList.add('active');
+
+        subcontents.forEach(content => {
+          if (content.id === target) {
+            content.style.display = 'block';
+            content.classList.add('active');
+          } else {
+            content.style.display = 'none';
+            content.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    // 3. Slider update value label
+    const rangeInput = document.getElementById('brine-range');
+    const rangeValLabel = document.getElementById('range-val');
+    if (rangeInput && rangeValLabel) {
+      rangeInput.addEventListener('input', (e) => {
+        rangeValLabel.textContent = `${e.target.value}%`;
+      });
+    }
+
+    // 4. Progress bar updater
+    function updateProgressBar(percent) {
+      const bar = document.getElementById('demo-progress-bar');
+      const text = document.getElementById('progress-percent');
+      if (bar && text) {
+        bar.style.width = `${percent}%`;
+        text.textContent = `${percent}%`;
+      }
+    }
+
+    // 5. Tabs in playground section
+    function openShowcaseTab(evt, tabId) {
+      const tabButton = evt.currentTarget;
+      const tabContainer = tabButton.closest('.brutal-tabs') || tabButton.parentElement;
+      const tabLinks = tabContainer.querySelectorAll('.tab-link');
+      
+      const wrapper = tabContainer.parentElement;
+      const tabContents = wrapper.querySelectorAll('.tab-content');
+
+      tabLinks.forEach(link => link.classList.remove('active'));
+      tabContents.forEach(content => content.classList.remove('active'));
+
+      tabButton.classList.add('active');
+      const targetContent = document.getElementById(tabId);
+      if (targetContent) {
+        targetContent.classList.add('active');
+      }
+    }
+
+    // 6. Modal controllers
+    const modalBackdrop = document.getElementById('docs-modal-backdrop');
+    const openModalBtns = document.querySelectorAll('.modal-trigger-btn');
+    const closeModalBtn = document.getElementById('docs-modal-close');
+    const dismissModalBtn = document.getElementById('docs-modal-dismiss');
+
+    function openModal() {
+      modalBackdrop.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modalBackdrop.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    openModalBtns.forEach(btn => btn.addEventListener('click', openModal));
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+    if (dismissModalBtn) dismissModalBtn.addEventListener('click', closeModal);
+
+    // Close on backdrop click
+    modalBackdrop.addEventListener('click', (e) => {
+      if (e.target === modalBackdrop) {
+        closeModal();
+      }
+    });
+
+
+
+    // 8. Chart Randomizer
+    function randomizeDashboardChart() {
+      const bars = document.querySelectorAll('#dashboard-chart .chart-bar');
+      bars.forEach(bar => {
+        const heightPercent = Math.floor(Math.random() * 80) + 20; // 20% to 100%
+        bar.style.height = `${heightPercent}%`;
+      });
+    }
+  </script>
+</body>
+</html>
