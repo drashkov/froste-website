@@ -234,14 +234,16 @@ p {
 
 /* Layout: Section Padding */
 .section-standard {
-  padding: 6rem 0;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
 .section-alt {
   background-color: var(--primary-color);
   border-top: var(--brutal-border);
   border-bottom: var(--brutal-border);
-  padding: 6rem 0;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
 /* Section 1: Hero */
@@ -250,14 +252,15 @@ p {
   flex-direction: column;
   justify-content: flex-start;
   min-height: calc(70vh - 80px);
-  padding: 1rem 0 2rem 0;
+  padding: 2rem 0 4rem 0;
   box-sizing: border-box;
   gap: 1rem;
 }
 
 .hero.container {
   max-width: 1350px;
-  padding: 0 clamp(2rem, 6vw, 5rem);
+  padding-left: clamp(2rem, 6vw, 5rem);
+  padding-right: clamp(2rem, 6vw, 5rem);
 }
 
 .hero-headline {
@@ -617,6 +620,14 @@ p {
 }
 
 /* Card color overrides */
-.card-primary { background-color: var(--primary-color) !important; }
-.card-secondary { background-color: var(--secondary-color) !important; }
-.card-alt { background-color: var(--button-color-alt) !important; }
+.card-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.card-secondary {
+  background-color: var(--secondary-color) !important;
+}
+
+.card-alt {
+  background-color: var(--button-color-alt) !important;
+}
